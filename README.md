@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Custom icons with maplibre
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](./public/docs/home.png)
+
+Exploration for [SC-40426](https://app.shortcut.com/opendatasoft/story/40426/exploration-custom-pictos-for-pois)
+
+4 renders are availables in App.js. To switch between them comment/uncomment renders
 
 ## Available Scripts
 

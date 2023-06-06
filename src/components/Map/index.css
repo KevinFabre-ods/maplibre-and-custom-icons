@@ -1,0 +1,23 @@
+.rods-map {
+    width: 100%;
+    height: 100%;
+}
+
+.marker-size--small .maplibregl-marker svg {
+    width: 18px;
+    height: 28px;
+}
+
+.marker-size--medium .maplibregl-marker svg {
+    width: 27px;
+    height: 41px;
+}
+
+.marker-size--large .maplibregl-marker svg {
+    width: 54px;
+    height: 81px;
+}
+
+.maplibregl-marker svg g:nth-child(2) {
+    fill: var(--marker-color);
+}
