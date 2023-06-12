@@ -5,9 +5,12 @@ body {
 #root {
     display: grid;
     height: 100vh;
-    grid-template-rows: auto;
+    grid-template-rows: 48px auto;
     grid-template-columns: 25% 75%;
-    grid-template-areas: "a b";
+    grid-template-areas: "h h" "a m";
+}
+header {
+    grid-area: h;
 }
 
 aside {
@@ -15,5 +18,5 @@ aside {
 }
 
 main {
-    grid-area: b;
+    grid-area: m;
 }

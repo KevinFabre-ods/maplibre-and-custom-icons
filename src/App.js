@@ -12,12 +12,17 @@ import {
 } from "./components/Map";
 
 function App() {
+  const [markerType, setMarkerType] = useState("dots");
   const [layerCircleProperties, setLayerCircleProperties] = useState({
     color: "",
     radius: 5,
     blur: 0,
+    opacity: 1,
     strokeColor: "",
     strokeWidth: 0,
+    strokeOpacity: 1,
+    pitchAlignment: "viewport",
+    pitchScale: "map",
   });
   const [domMarkerProperties, setDomMarkerProperties] = useState({
     color: "black",
@@ -27,9 +32,23 @@ function App() {
   const [layerIconProperties, setLayerIconProperties] = useState({
     color: "black",
     icon: "marker",
+    opacity: 1,
     haloBlur: 0,
     haloColor: "white",
     haloWidth: 0,
+    overlap: "always",
+    rotate: 0,
+    pitchAlignment: "auto",
+    textColor: "black",
+    textOverlap: "never",
+    textRotate: 0,
+    textSize: 16,
+    textOffsetX: 0,
+    textOffsetY: 0,
+    textAnchor: "center",
+    textOptional: true,
+    textTransform: "none",
+    textOpacity: 1,
   });
 
   const [layerMarkerProperties, setLayerMarkerProperties] = useState({
@@ -56,6 +75,28 @@ function App() {
 
   return (
     <>
+      <header>
+        <label htmlFor="map-type">Type of marker</label>
+        <select
+          name="map-type"
+          id="map-type"
+          value={markerType}
+          onChange={(e) => setMarkerType(e.target.value)}
+        >
+          <option value="dots">Dots</option>
+          <option value="icons">Icons directly on map</option>
+          <option value="markers">Plain markers</option>
+        </select>
+        <div>
+          <a
+            href="https://data.opendatasoft.com/explore/dataset/accidentologie-paris%40datailedefrance/information/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Data from Accidentologie à Paris (2012-2013)
+          </a>
+        </div>
+      </header>
       {/* DOM Markers */}
       {/* <aside>
         <DomMarkerForm
@@ -68,37 +109,51 @@ function App() {
       </main> */}
 
       {/* Circle with layer */}
-      {/* <aside>
-        <LayerCircleForm
-          {...layerCircleProperties}
-          handleChange={handleCircleChange}
-        />
-      </aside>
-      <main>
-        <LayerCircleMap {...layerCircleProperties} />
-      </main> */}
+      {markerType === "dots" && (
+        <>
+          <aside>
+            <LayerCircleForm
+              {...layerCircleProperties}
+              handleChange={handleCircleChange}
+            />
+          </aside>
+          <main>
+            <LayerCircleMap {...layerCircleProperties} />
+          </main>
+        </>
+      )}
 
       {/* Icon with layer */}
-      {/* <aside>
-        <LayerIconForm
-          {...layerIconProperties}
-          handleChange={handleSymbolIconChange}
-        />
-      </aside>
-      <main>
-        <LayerIconMap {...layerIconProperties} />
-      </main> */}
+      {markerType === "icons" && (
+        <>
+          {" "}
+          <aside>
+            <LayerIconForm
+              {...layerIconProperties}
+              handleChange={handleSymbolIconChange}
+            />
+          </aside>
+          <main>
+            <LayerIconMap {...layerIconProperties} />
+          </main>{" "}
+        </>
+      )}
 
       {/* Marker with icon */}
-      <aside>
-        <LayerMarkerForm
-          {...layerMarkerProperties}
-          handleChange={handleLayerMarkerChange}
-        />
-      </aside>
-      <main>
-        <LayerMarkerMap {...layerMarkerProperties} />
-      </main>
+      {markerType === "markers" && (
+        <>
+          {" "}
+          <aside>
+            <LayerMarkerForm
+              {...layerMarkerProperties}
+              handleChange={handleLayerMarkerChange}
+            />
+          </aside>
+          <main>
+            <LayerMarkerMap {...layerMarkerProperties} />
+          </main>{" "}
+        </>
+      )}
     </>
   );
 }

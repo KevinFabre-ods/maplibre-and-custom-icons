@@ -4,6 +4,12 @@ export function setPaintProperties(map, layerId, properties) {
   }
 }
 
+export function setLayoutProperties(map, layerId, properties) {
+  for (const key in properties) {
+    map.setLayoutProperty(layerId, key, properties[key]);
+  }
+}
+
 export function updateIconImage(map, layerId, iconImage, sdf = false) {
   if (!map.hasImage(iconImage)) {
     map.loadImage(`static/${iconImage}.png`, (error, image) => {

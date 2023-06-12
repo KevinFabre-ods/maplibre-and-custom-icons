@@ -14,6 +14,7 @@ export function loadSymbols(map) {
       layout: {
         "icon-image": "marker",
         "icon-allow-overlap": true,
+        "text-field": "Some text",
       },
       paint: {
         "icon-color": "black",

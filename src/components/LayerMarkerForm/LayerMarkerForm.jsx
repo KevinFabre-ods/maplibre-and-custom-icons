@@ -1,7 +1,17 @@
 const LayerMarkerForm = ({ handleChange, ...form }) => {
   return (
     <fieldset>
-      <legend>Layer Marker</legend>
+      <legend>
+        Layer Marker (
+        <a
+          href="https://maplibre.org/maplibre-style-spec/layers/#symbol"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          From MapLibre symbol layer
+        </a>
+        )
+      </legend>
       <label htmlFor="layer-marker-color">Color</label>
       <select
         id="layer-marker-color"
@@ -41,6 +51,7 @@ const LayerMarkerForm = ({ handleChange, ...form }) => {
           </div>
         </>
       )}
+      <p>...and same properties from the layer icon form</p>
     </fieldset>
   );
 };
