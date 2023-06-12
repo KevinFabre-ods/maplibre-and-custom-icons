@@ -1,0 +1,2 @@
+body{margin:0}#root{display:grid;grid-template-areas:"h h" "a m";grid-template-columns:25% 75%;grid-template-rows:48px auto;height:100vh}header{grid-area:h}aside{grid-area:a}main{grid-area:m}.rods-map{height:100%;width:100%}.marker-size--small .maplibregl-marker svg{height:28px;width:18px}.marker-size--medium .maplibregl-marker svg{height:41px;width:27px}.marker-size--large .maplibregl-marker svg{height:81px;width:54px}.maplibregl-marker svg g:nth-child(2){fill:var(--marker-color)}
+/*# sourceMappingURL=main.8744368a.css.map*/
