@@ -8,7 +8,7 @@ export const initializeMap = (containerId) => {
   let map = new maplibregl.Map({
     container: containerId,
     style:
-      "https://api.maptiler.com/maps/positron/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
+      "https://api.jawg.io/styles/jawg-light.json?access-token=uzBjDNBrhgiwTooLOrfyyORKcbMe6MYpuE1a9co4heQ2dG17hzlbHeqiASa9cjZN",
     center: [0, 0],
     zoom: 1,
     bounds: [2.1492, 48.775198, 2.529602, 48.928815],
