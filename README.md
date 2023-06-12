@@ -1,8 +1,10 @@
 # Custom icons with maplibre
 
+[Demo](https://kevinfabre-ods.github.io/maplibre-and-custom-icons/)
+
 ![image](./public/docs/home.png)
 
-Exploration for [SC-40426](https://app.shortcut.com/opendatasoft/story/40426/exploration-custom-pictos-for-pois)
+(internal Exploration for [SC-40426](https://app.shortcut.com/opendatasoft/story/40426/exploration-custom-pictos-for-pois))
 
 4 renders are availables in App.js. To switch between them comment/uncomment renders
 
