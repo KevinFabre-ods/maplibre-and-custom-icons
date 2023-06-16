@@ -1,4 +1,4 @@
-import GeoPoints from "../../../data/accidentologie-paris.geojson";
+import GeoPoints from "../../../data/daily-weather-data--small.geojson";
 
 export function loadSymbols(map) {
   map.addSource("geo-source", {
@@ -15,6 +15,7 @@ export function loadSymbols(map) {
         "icon-image": "marker",
         "icon-allow-overlap": true,
         "text-field": "Some text",
+        "text-optional": true,
       },
       paint: {
         "icon-color": "black",

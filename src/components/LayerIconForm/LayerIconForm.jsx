@@ -266,7 +266,7 @@ const LayerIconForm = ({ handleChange, ...form }) => {
           <input
             id="layer-icon-text-optional"
             type="checkbox"
-            value={form.textOptional}
+            checked={form.textOptional}
             onChange={(e) => {
               handleChange("textOptional", e.target.checked);
             }}

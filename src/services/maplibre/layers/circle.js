@@ -1,4 +1,4 @@
-import GeoPoints from "../../../data/accidentologie-paris.geojson";
+import GeoPoints from "../../../data/daily-weather-data.geojson";
 
 export function loadCircles(map) {
   map.addSource("arbres-remarquables", {

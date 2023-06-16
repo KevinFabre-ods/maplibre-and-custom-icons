@@ -23,6 +23,9 @@ function App() {
     strokeOpacity: 1,
     pitchAlignment: "viewport",
     pitchScale: "map",
+    adaptOnZoom: false,
+    minZoomRadius: 0.5,
+    maxZoomRadius: 24,
   });
   const [domMarkerProperties, setDomMarkerProperties] = useState({
     color: "black",
@@ -89,11 +92,11 @@ function App() {
         </select>
         <div>
           <a
-            href="https://data.opendatasoft.com/explore/dataset/accidentologie-paris%40datailedefrance/information/"
+            href="https://data.opendatasoft.com/explore/dataset/noaa-daily-weather-data%40public/information/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Data from Accidentologie à Paris (2012-2013)
+            Historical NOAA Daily Weather (data after 2020-07-26)
           </a>
         </div>
       </header>

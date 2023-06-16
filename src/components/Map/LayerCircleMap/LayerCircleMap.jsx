@@ -15,6 +15,9 @@ const LayerCircleMap = ({
   opacity,
   pitchAlignment,
   pitchScale,
+  adaptOnZoom,
+  minZoomRadius,
+  maxZoomRadius,
 }) => {
   const containerMapId = useId();
   const circleMap = useMap(containerMapId, loadCircles);
@@ -23,7 +26,6 @@ const LayerCircleMap = ({
     if (circleMap) {
       setPaintProperties(circleMap, "circle", {
         "circle-color": color || "black",
-        "circle-radius": radius,
         "circle-blur": blur,
         "circle-opacity": opacity,
         "circle-stroke-color": strokeColor || "white",
@@ -45,6 +47,24 @@ const LayerCircleMap = ({
     pitchAlignment,
     pitchScale,
   ]);
+
+  useEffect(() => {
+    if (circleMap) {
+      setPaintProperties(circleMap, "circle", {
+        "circle-radius": adaptOnZoom
+          ? [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              0,
+              minZoomRadius,
+              24,
+              maxZoomRadius,
+            ]
+          : radius,
+      });
+    }
+  }, [circleMap, adaptOnZoom, radius, minZoomRadius, maxZoomRadius]);
 
   return <div id={containerMapId} className="rods-map" />;
 };

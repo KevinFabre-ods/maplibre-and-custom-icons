@@ -98,6 +98,56 @@ function LayerCircleForm({ handleChange, ...form }) {
           <option value="viewport" label="Viewport"></option>
         </select>
       </div>
+      <div>
+        <label htmlFor="circle-adapt-on-zoom">Adapt on zoom</label>
+        <input
+          id="circle-adapt-on-zoom"
+          type="checkbox"
+          value={form.adaptOnZoom}
+          onChange={(e) => {
+            handleChange("adaptOnZoom", e.target.checked);
+          }}
+        ></input>
+      </div>
+      {form.adaptOnZoom && (
+        <>
+          <div>
+            <label htmlFor="circle-adapt-on-min-zoom-radius">
+              Cicle radius (at zoom 0)
+            </label>
+            <input
+              id="circle-adapt-on-min-zoom-radius"
+              type="number"
+              value={form.minZoomRadius}
+              onChange={(e) =>
+                handleChange("minZoomRadius", Number.parseFloat(e.target.value))
+              }
+              step={0.1}
+              min={0.1}
+              max={form.maxZoomRadius}
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="circle-adapt-on-max-zoom-radius">
+              Cicle radius (at zoom 24)
+            </label>
+            <input
+              id="circle-adapt-on-max-zoom-radius"
+              type="number"
+              value={form.maxZoomRadius}
+              onChange={(e) =>
+                handleChange("maxZoomRadius", Number.parseFloat(e.target.value))
+              }
+              step={0.1}
+              min={form.minZoomRadius}
+            ></input>
+          </div>
+          <p>
+            Paint properites that supports interpolate expressions can change
+            when zoom change. A value can be set for each zoom level
+          </p>
+        </>
+      )}
       {!!form.strokeWidth && (
         <>
           <div>

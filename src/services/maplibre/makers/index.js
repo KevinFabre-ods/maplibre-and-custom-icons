@@ -1,7 +1,9 @@
 import maplibregl from "maplibre-gl";
 
-// import geoJson from "../../../data/arbres-remarquables.geojson";
-import geoJson from "../../../data/accidentologie-paris.geojson";
+import geoJson from "../../../data/arbres-remarquables.geojson";
+// import geoJson from "../../../data/accidentologie-paris.geojson";
+// import geoJson from "../../../data/daily-weather-data.geojson";
+
 import { fetchGeoJson } from "../../../utils";
 
 function createMarker(LngLat, map, options = {}) {
