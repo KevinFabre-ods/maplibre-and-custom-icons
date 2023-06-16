@@ -57,11 +57,21 @@ const LayerCircleMap = ({
               ["linear"],
               ["zoom"],
               0,
-              minZoomRadius,
+              [
+                "case",
+                ["boolean", ["feature-state", "isActive"], false],
+                50,
+                minZoomRadius,
+              ],
               24,
-              maxZoomRadius,
+              [
+                "case",
+                ["boolean", ["feature-state", "isActive"], false],
+                50,
+                maxZoomRadius,
+              ],
             ]
-          : radius,
+          : ["case", ["boolean", ["feature-state", "isActive"], false], 50, 5],
       });
     }
   }, [circleMap, adaptOnZoom, radius, minZoomRadius, maxZoomRadius]);
