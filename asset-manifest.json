@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/maplibre-and-custom-icons/static/css/main.8744368a.css",
-    "main.js": "/maplibre-and-custom-icons/static/js/main.e4264617.js",
+    "main.js": "/maplibre-and-custom-icons/static/js/main.b7b08006.js",
     "static/js/787.f79fbe26.chunk.js": "/maplibre-and-custom-icons/static/js/787.f79fbe26.chunk.js",
     "static/media/daily-weather-data.geojson": "/maplibre-and-custom-icons/static/media/daily-weather-data.f31b8f14399bca091874.geojson",
     "static/media/daily-weather-data--small.geojson": "/maplibre-and-custom-icons/static/media/daily-weather-data--small.cf5c6febe1fc8b1ba01b.geojson",
     "static/media/arbres-remarquables.geojson": "/maplibre-and-custom-icons/static/media/arbres-remarquables.b67d1e3cac1baf246161.geojson",
     "index.html": "/maplibre-and-custom-icons/index.html",
     "main.8744368a.css.map": "/maplibre-and-custom-icons/static/css/main.8744368a.css.map",
-    "main.e4264617.js.map": "/maplibre-and-custom-icons/static/js/main.e4264617.js.map",
+    "main.b7b08006.js.map": "/maplibre-and-custom-icons/static/js/main.b7b08006.js.map",
     "787.f79fbe26.chunk.js.map": "/maplibre-and-custom-icons/static/js/787.f79fbe26.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8744368a.css",
-    "static/js/main.e4264617.js"
+    "static/js/main.b7b08006.js"
   ]
 }
