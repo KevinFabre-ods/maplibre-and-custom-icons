@@ -143,8 +143,8 @@ function LayerCircleForm({ handleChange, ...form }) {
             ></input>
           </div>
           <p>
-            Paint properites that supports interpolate expressions can change
-            when zoom change. A value can be set for each zoom level
+            Properites that supports interpolate expressions can change when
+            zoom change. A value can be set for each zoom level
           </p>
         </>
       )}

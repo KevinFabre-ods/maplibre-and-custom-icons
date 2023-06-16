@@ -138,6 +138,63 @@ const LayerIconForm = ({ handleChange, ...form }) => {
           <option value="viewport" label="Viewport"></option>
         </select>
       </div>
+      <div>
+        <label htmlFor="layer-icon-adapt-on-zoom">Adapt on zoom</label>
+        <input
+          id="layer-icon-adapt-on-zoom"
+          type="checkbox"
+          value={form.adaptOnZoom}
+          onChange={(e) => {
+            handleChange("adaptOnZoom", e.target.checked);
+          }}
+        ></input>
+      </div>
+      {form.adaptOnZoom && (
+        <>
+          <div>
+            <label htmlFor="layer-icon-adapt-on-min-zoom-icon-size">
+              Icon size (at zoom 0)
+            </label>
+            <input
+              id="layer-icon-adapt-on-min-zoom-icon-size"
+              type="number"
+              value={form.minZoomIconSize}
+              onChange={(e) =>
+                handleChange(
+                  "minZoomIconSize",
+                  Number.parseFloat(e.target.value)
+                )
+              }
+              step={0.1}
+              min={0.1}
+              max={form.maxZoomIconSize}
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="layer-icon-adapt-on-max-zoom-icon-size">
+              Icon size (at zoom 24)
+            </label>
+            <input
+              id="layer-icon-adapt-on-max-zoom-icon-size"
+              type="number"
+              value={form.maxZoomIconSize}
+              onChange={(e) =>
+                handleChange(
+                  "maxZoomIconSize",
+                  Number.parseFloat(e.target.value)
+                )
+              }
+              step={0.1}
+              min={form.minZoomRadius}
+              max={1}
+            ></input>
+          </div>
+          <p>
+            Properites that supports interpolate expressions can change when
+            zoom change. A value can be set for each zoom level
+          </p>
+        </>
+      )}
       <fieldset>
         <legend>Text</legend>
         <div>

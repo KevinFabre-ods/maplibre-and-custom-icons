@@ -52,6 +52,9 @@ function App() {
     textOptional: true,
     textTransform: "none",
     textOpacity: 1,
+    adaptOnZoom: false,
+    minZoomIconSize: 0.1,
+    maxZoomIconSize: 1,
   });
 
   const [layerMarkerProperties, setLayerMarkerProperties] = useState({

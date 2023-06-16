@@ -29,13 +29,16 @@ const LayerIconMap = ({
   textOffsetY,
   textTransform,
   textOpacity,
+  adaptOnZoom,
+  minZoomIconSize,
+  maxZoomIconSize,
 }) => {
   const containerMapId = useId();
-  const circleMap = useMap(containerMapId, loadSymbols);
+  const iconMap = useMap(containerMapId, loadSymbols);
 
   useEffect(() => {
-    if (circleMap)
-      setPaintProperties(circleMap, "icon-symbol", {
+    if (iconMap)
+      setPaintProperties(iconMap, "symbol-layer", {
         "icon-color": color || "black",
         "icon-opacity": opacity,
         "icon-halo-blur": haloBlur,
@@ -45,7 +48,7 @@ const LayerIconMap = ({
         "text-opacity": textOpacity,
       });
   }, [
-    circleMap,
+    iconMap,
     color,
     opacity,
     haloBlur,
@@ -56,8 +59,8 @@ const LayerIconMap = ({
   ]);
 
   useEffect(() => {
-    if (circleMap)
-      setLayoutProperties(circleMap, "icon-symbol", {
+    if (iconMap)
+      setLayoutProperties(iconMap, "symbol-layer", {
         "icon-overlap": overlap,
         "icon-rotate": rotate,
         "icon-pitch-alignment": pitchAlignment,
@@ -70,7 +73,7 @@ const LayerIconMap = ({
         "text-transform": textTransform,
       });
   }, [
-    circleMap,
+    iconMap,
     overlap,
     rotate,
     pitchAlignment,
@@ -85,9 +88,27 @@ const LayerIconMap = ({
   ]);
 
   useEffect(() => {
-    if (circleMap)
-      updateIconImage(circleMap, "icon-symbol", icon || "marker", true);
-  }, [circleMap, icon]);
+    if (iconMap)
+      updateIconImage(iconMap, "symbol-layer", icon || "marker", true);
+  }, [iconMap, icon]);
+
+  useEffect(() => {
+    if (iconMap) {
+      setLayoutProperties(iconMap, "symbol-layer", {
+        "icon-size": adaptOnZoom
+          ? [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              0,
+              minZoomIconSize,
+              24,
+              maxZoomIconSize,
+            ]
+          : 1,
+      });
+    }
+  }, [iconMap, adaptOnZoom, minZoomIconSize, maxZoomIconSize]);
 
   return <div id={containerMapId} className="rods-map" />;
 };

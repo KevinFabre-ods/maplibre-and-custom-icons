@@ -12,22 +12,21 @@ function buildImageId(color, icon, iconColor) {
     id += `-${icon}`;
     if (iconColor) id += `-${iconColor}`;
   }
-  console.log(id);
   return id;
 }
 
 const LayerMarkerMap = ({ color, icon, iconColor }) => {
   const containerMapId = useId();
-  const circleMap = useMap(containerMapId, loadSymbols);
+  const symbolMap = useMap(containerMapId, loadSymbols);
 
   useEffect(() => {
-    if (circleMap)
+    if (symbolMap)
       updateIconImage(
-        circleMap,
-        "icon-symbol",
+        symbolMap,
+        "symbol-layer",
         buildImageId(color, icon, iconColor)
       );
-  }, [circleMap, color, icon, iconColor]);
+  }, [symbolMap, color, icon, iconColor]);
 
   return <div id={containerMapId} className="rods-map" />;
 };

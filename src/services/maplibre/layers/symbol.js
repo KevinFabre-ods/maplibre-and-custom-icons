@@ -8,7 +8,7 @@ export function loadSymbols(map) {
   map.loadImage("static/marker.png", (error, image) => {
     map.addImage("marker", image, { sdf: true });
     map.addLayer({
-      id: "icon-symbol",
+      id: "symbol-layer",
       type: "symbol",
       source: "geo-source",
       layout: {
